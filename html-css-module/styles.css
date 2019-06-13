@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red: #c12127;
+  --blue: #263547;
+  --orange: #f19230;
+  --hover-orange: #e2862a;
+  --light-red: #cc3738;
+  --pink: #f05757;
+  --hover-red: #db4042;
+  --gray-blue: #34495d;
+  --gray: #545861;
+  --light-gray: #8a8a8a;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--gray);
+}
+
+h1,
+h2 {
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 1.35em;
+  margin: 20px 0;
+}
+
+h4 {
+  margin: 10px 0;
+}
+
+p,
+li {
+  line-height: 1.25;
+}
+
+/* General */
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+input {
+  font-size: 1em;
+}
+
+.button {
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.dark {
+  color: white;
+  background-color: var(--blue);
+}
+
+/* Columns */
+
+.col-sm {
+  width: 40%;
+}
+
+.col-lg {
+  width: 60%;
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  background-color: var(--red);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 12px;
+  justify-content: space-between;
+}
+
+.heart {
+  font-size: 1.5em;
+}
+
+.heart,
+.top-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.heart:hover,
+.acronym:hover,
+.top-links a:hover {
+  color: white;
+}
+
+.top-left,
+.top-links {
+  display: flex;
+  align-items: center;
+}
+
+.heart,
+.top-links li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+/* Header */
+
+#header {
+  background-image: url('images/city-scape.svg');
+}
+
+.build {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.npm-logo {
+  width: 150px;
+  height: auto;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.npm-logo img {
+  width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.search-input,
+.search-button {
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 12px;
+}
+
+.search-input {
+  width: 100%;
+  color: white;
+}
+
+.search-button {
+  color: white;
+  padding: 15px 15px 12px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.login-signup {
+  display: flex;
+  align-items: center;
+}
+
+.login-signup li {
+  list-style: none;
+  padding-left: 12px;
+  white-space: nowrap;
+}
+
+.login-signup a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.login-signup a:hover {
+  color: white;
+}
+
+.login-signup img {
+  width: 35px;
+  margin-top: 5px;
+}
+
+.build-content {
+  padding: 75px 0;
+}
+
+.build-content p {
+  margin: 30px 0;
+}
+
+.build-content .button {
+  background-color: var(--orange);
+}
+
+.build-content .button:hover {
+  background-color: var(--hover-orange);
+}
+
+/* Section 1 */
+
+.orgs-content {
+  display: flex;
+  padding: 85px 0;
+}
+
+.orgs-image {
+  padding-right: 60px;
+}
+
+.orgs-list {
+  margin: 30px;
+}
+
+#orgs .button {
+  background-color: var(--light-red);
+}
+
+#orgs .button:hover {
+  background-color: var(--red);
+}
+
+.learn-more {
+  font-size: 0.9em;
+  display: block;
+}
+
+.learn-more a {
+  color: white;
+  text-decoration: none;
+}
+
+.learn-more a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Section 2 */
+#general-info {
+  background-image: url('images/forklift.svg');
+  height: 450px;
+}
+
+#general-info .button {
+  background-color: var(--gray-blue);
+}
+
+#general-info .button:hover {
+  background-color: var(--blue);
+}
+
+.general-info-content {
+  padding-top: 85px;
+}
+
+.general-info-content p {
+  margin: 25px 0;
+}
+
+/* Section 3 */
+
+#blocks {
+  text-align: center;
+  margin: 65px 0 50px;
+}
+
+#blocks .container {
+  width: 85%;
+}
+
+.blocks-description {
+  margin: 0 65px;
+}
+
+.features {
+  display: flex;
+  margin-top: 55px;
+}
+
+.center-feature {
+  padding: 0 45px;
+}
+
+.feature {
+  width: 33%;
+}
+
+.feature p {
+  color: var(--light-gray);
+}
+
+.feature a {
+  color: var(--light-red);
+  text-decoration: none;
+}

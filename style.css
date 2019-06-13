@@ -1,0 +1,160 @@
+:root {
+  --dark-gray: #3e3e3e;
+}
+
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 50px;
+  background-color: white;
+}
+
+#navbar li {
+  list-style: none;
+  margin-right: 45px;
+  cursor: pointer;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: var(--dark-gray);
+}
+
+#navbar a:hover {
+  border-bottom: 2px solid teal;
+}
+
+#welcome-section {
+  background-color: teal;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: auto;
+}
+
+#projects h2 {
+  margin-top: 25px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.project-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 10px solid #f8f2e4;
+  box-shadow: 0px 3px 5px #00000025;
+  margin: 45px auto;
+  padding: 6px 12px;
+  width: 160px;
+  font-size: 0.8em;
+}
+
+.project-title {
+  font-weight: bold;
+  color: teal;
+  margin: 10px 0;
+  font-size: 1.35em;
+}
+
+#contact {
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profile {
+  margin: 35px 0 20px;
+}
+
+.contact-links {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  background-color: white;
+  border: 3px solid teal;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 15px;
+}
+
+.contact-info a {
+  color: teal;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  font-weight: bold;
+}
+
+#footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 55px;
+  background-color: var(--dark-gray);
+  align-items: center;
+  font-size: 0.85em;
+}
+
+#footer li {
+  list-style: none;
+}
+
+#footer a {
+  color: white;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  border-bottom: 1px solid white;
+}
+
+@media only screen and (max-width: 800px) {
+  #welcome-section {
+    height: 50vh;
+  }
+}
