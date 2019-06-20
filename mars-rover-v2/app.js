@@ -16,162 +16,164 @@ const grid = createGrid(5);
 
 // Rover Object Goes Here
 // ======================
-const rover = {
-  direction: 'N',
-  x: 0,
-  y: 0,
-  travelLog: []
-};
-
-// ======================
-function turnLeft(rover) {
-  switch (rover.direction) {
-    case 'N':
-      rover.direction = 'W';
-      break;
-    case 'W':
-      rover.direction = 'S';
-      break;
-    case 'S':
-      rover.direction = 'E';
-      break;
-    case 'E':
-      rover.direction = 'N';
-      break;
-    default:
-      return;
+class Rover {
+  constructor(name) {
+    this.name = name;
+    this.direction = 'N';
+    this.x = 0;
+    this.y = 0;
+    this.travelLog = [];
   }
-}
-
-function turnRight(rover) {
-  switch (rover.direction) {
-    case 'N':
-      rover.direction = 'E';
-      break;
-    case 'E':
-      rover.direction = 'S';
-      break;
-    case 'S':
-      rover.direction = 'W';
-      break;
-    case 'W':
-      rover.direction = 'N';
-      break;
-    default:
-      return;
-  }
-}
-
-function moveForward(rover) {
-  switch (rover.direction) {
-    case 'N':
-      if (rover.y > 0) {
-        if (grid[rover.y - 1][rover.x] === 'X') {
-          console.log('Obstacle found');
-        } else {
-          rover.y -= 1;
-        }
-      }
-      break;
-    case 'E':
-      if (rover.x < 9) {
-        if (grid[rover.y][rover.x + 1] === 'X') {
-          console.log('Obstacle found');
-        } else {
-          rover.x += 1;
-        }
-      }
-      break;
-    case 'S':
-      if (rover.y < 9) {
-        if (grid[rover.y + 1][rover.x] === 'X') {
-          console.log('Obstacle found');
-        } else {
-          rover.y += 1;
-        }
-      }
-      break;
-    case 'W':
-      if (rover.x > 0) {
-        if (grid[rover.y][rover.x - 1] === 'X') {
-          console.log('Obstacle found');
-        } else {
-          rover.x -= 1;
-        }
-      }
-      break;
-    default:
-      return;
-  }
-  rover.travelLog.push([rover.x, rover.y]);
-}
-
-function moveBackward(rover) {
-  switch (rover.direction) {
-    case 'N':
-      if (rover.y < 9) {
-        if (grid[rover.y + 1][rover.x] === 'X') {
-          console.log('Obstacle found');
-        } else {
-          rover.y += 1;
-        }
-      }
-      break;
-    case 'E':
-      if (rover.x > 0) {
-        if (grid[rover.y][rover.x - 1] === 'X') {
-          console.log('Obstacle found');
-        } else {
-          rover.x -= 1;
-        }
-      }
-      break;
-    case 'S':
-      if (rover.y > 0) {
-        if (grid[rover.y - 1][rover.x] === 'X') {
-          console.log('Obstacle found');
-        } else {
-          rover.y -= 1;
-        }
-      }
-      break;
-    case 'W':
-      if (rover.x < 9) {
-        if (grid[rover.y][rover.x + 1] === 'X') {
-          console.log('Obstacle found');
-        } else {
-          rover.x += 1;
-        }
-      }
-      break;
-    default:
-      return;
-  }
-  rover.travelLog.push([rover.x, rover.y]);
-}
-
-function roverController(commands) {
-  for (let i = 0; i < commands.length; i++) {
-    switch (commands.charAt(i)) {
-      case 'f':
-        moveForward(rover);
+  turnLeft() {
+    switch (this.direction) {
+      case 'N':
+        this.direction = 'W';
         break;
-      case 'b':
-        moveBackward(rover);
+      case 'W':
+        this.direction = 'S';
         break;
-      case 'r':
-        turnRight(rover);
+      case 'S':
+        this.direction = 'E';
         break;
-      case 'l':
-        turnLeft(rover);
+      case 'E':
+        this.direction = 'N';
         break;
       default:
-        break;
+        return;
     }
+    return this;
   }
-  console.log(rover.travelLog);
-  return rover;
+  turnRight() {
+    switch (this.direction) {
+      case 'N':
+        this.direction = 'E';
+        break;
+      case 'E':
+        this.direction = 'S';
+        break;
+      case 'S':
+        this.direction = 'W';
+        break;
+      case 'W':
+        this.direction = 'N';
+        break;
+      default:
+        return;
+    }
+    return this;
+  }
+  moveForward() {
+    switch (this.direction) {
+      case 'N':
+        if (this.y > 0) {
+          if (grid[this.y - 1][this.x] !== null) {
+            console.log('Obstacle found!');
+          } else {
+            this.y -= 1;
+          }
+        }
+        break;
+      case 'E':
+        if (this.x < 9) {
+          if (grid[this.y][this.x + 1] !== null) {
+            console.log('Obstacle found!');
+          } else {
+            this.x += 1;
+          }
+        }
+        break;
+      case 'S':
+        if (this.y < 9) {
+          if (grid[this.y + 1][this.x] !== null) {
+            console.log('Obstacle found!');
+          } else {
+            this.y += 1;
+          }
+        }
+        break;
+      case 'W':
+        if (this.x > 0) {
+          if (grid[this.y][this.x - 1] !== null) {
+            console.log('Obstacle found!');
+          } else {
+            this.x -= 1;
+          }
+        }
+        break;
+      default:
+        return;
+    }
+    this.travelLog.push([this.x, this.y]);
+  }
+  moveBackward() {
+    switch (this.direction) {
+      case 'N':
+        if (this.y < 9) {
+          if (grid[this.y + 1][this.x] !== null) {
+            console.log('Obstacle found!');
+          } else {
+            this.y += 1;
+          }
+        }
+        break;
+      case 'E':
+        if (this.x > 0) {
+          if (grid[this.y][this.x - 1] !== null) {
+            console.log('Obstacle found!');
+          } else {
+            this.x -= 1;
+          }
+        }
+        break;
+      case 'S':
+        if (this.y > 0) {
+          if (grid[this.y - 1][this.x] !== null) {
+            console.log('Obstacle found!');
+          } else {
+            this.y -= 1;
+          }
+        }
+        break;
+      case 'W':
+        if (this.x < 9) {
+          if (grid[this.y][this.x + 1] !== null) {
+            console.log('Obstacle found!');
+          } else {
+            this.x += 1;
+          }
+        }
+        break;
+      default:
+        return;
+    }
+    this.travelLog.push([this.y, this.x]);
+  }
+  roverController(commands) {
+    const [prevY, prevX] = [this.y, this.x];
+    for (let i = 0; i < commands.length; i++) {
+      switch (commands.charAt(i)) {
+        case 'f':
+          this.moveForward();
+          break;
+        case 'b':
+          this.moveBackward();
+          break;
+        case 'r':
+          this.turnRight();
+          break;
+        case 'l':
+          this.turnLeft();
+          break;
+        default:
+          break;
+      }
+    }
+    grid[prevY][prevX] = null;
+    grid[this.y][this.x] = this.name;
+    console.log(this.travelLog);
+    console.table(grid);
+    return this;
+  }
 }
-
-roverController('rffrfflfrff');
+// roverController('rffrfflfrff');
 // roverController('ffzzy');
