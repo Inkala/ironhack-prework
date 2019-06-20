@@ -17,11 +17,11 @@ const grid = createGrid(5);
 // Rover Object Goes Here
 // ======================
 class Rover {
-  constructor(name) {
+  constructor(name, x=0, y=0) {
     this.name = name;
     this.direction = 'N';
-    this.x = 0;
-    this.y = 0;
+    this.x = x;
+    this.y = y;
     this.travelLog = [];
   }
   turnLeft() {
